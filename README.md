@@ -1,4 +1,4 @@
-# demoapp
+# CatalogApp
 
 A new Flutter project.
 
