@@ -1,6 +1,7 @@
-import 'package:demoapp/utils/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+// import 'package:velocity_x/velocity_x.dart';
+import 'package:grynow/utils/routes.dart';
+// import 'package:demoapp/widgets/themes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -15,8 +16,8 @@ class _LoginPageState extends State<LoginPage> {
 
   final _formKey = GlobalKey<FormState>();
 
-  moveToHome(BuildContext context) async{
-    if(_formKey.currentState!.validate()){
+  moveToHome(BuildContext context) async {
+    if (_formKey.currentState!.validate()) {
       setState(() {
         changedButton = true;
       });
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Material(
-      color: context.canvasColor,
+      // color: context.canvasColor,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,28 +82,28 @@ class _LoginPageState extends State<LoginPage> {
                       height: 5,
                     ),
                     TextFormField(
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter password',
-                          labelText: 'Password',
-                        ),
-                        validator: (value) {
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter password',
+                        labelText: 'Password',
+                      ),
+                      validator: (value) {
                         if (value!.isEmpty) {
                           return 'Password cannot be empty';
-                        }
-                        else if(value.length < 6){
+                        } else if (value.length < 6) {
                           return 'Password must be at least 6 characters';
                         }
                         return null;
                       },
-                      ),
+                    ),
                     const SizedBox(
                       height: 70,
                     ),
                     Material(
                       // ignore: deprecated_member_use
-                      color: context.theme.buttonColor,
-                      borderRadius: BorderRadius.circular(changedButton ? 50 : 8),
+                      color: Colors.indigo[500],
+                      borderRadius:
+                          BorderRadius.circular(changedButton ? 50 : 8),
                       child: InkWell(
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
@@ -112,19 +113,19 @@ class _LoginPageState extends State<LoginPage> {
                           width: changedButton ? 50 : 200,
                           height: 50,
                           alignment: Alignment.center,
-                          child: changedButton 
-                          ? const Icon(
-                              Icons.done,
-                              color: Colors.white,
-                            )
-                          : const Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: changedButton
+                              ? const Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : const Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                         ),
                       ),
                     )
